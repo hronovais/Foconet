@@ -1,0 +1,55 @@
+﻿@using TestAjax.Helpers
+@model IEnumerable<Foconet.Data.Entities.Models.Pedido>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Observacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Finalizado)
+        </th>
+        <th>
+            @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-plus'></span>", "Add", "Create", "Pedido", htmlAttributes: new { data_modal = "", @class = "btn btn-primary pull-right col-sm-5" })
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacao)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.Finalizado, new { @disabled = "disabled" })
+            </td>
+            <td>
+                <div class="pull-right">
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-pencil'></span>", "Edit", "Edit", "Pedido", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-default" })
+                    &nbsp;
+                    @Html.NoEncodeActionLink("<span class='glyphicon glyphicon-trash'></span>", "Delete", "Delete", "Pedido", routeValues: new { id = item.Id }, htmlAttributes: new { data_modal = "", @class = "btn btn-danger disabled" })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+
+

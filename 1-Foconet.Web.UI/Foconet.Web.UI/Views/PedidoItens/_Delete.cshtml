@@ -1,0 +1,53 @@
+﻿@model Foconet.Data.Entities.Models.PedidoItens
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Deseja excluir o material?</h4>
+</div>
+
+<div class="modal-body">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PedidoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PedidoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaterialId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaterialId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="modal-footer">
+            <button class="btn" type="button" data-dismiss="modal">Não</button>
+            <input class="btn btn-danger" type="submit" value="Sim" />
+        </div>
+    }
+</div>
